@@ -9,3 +9,7 @@ app.set("view engine", "handlebars");
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.listen(3000, () => {
+  console.log("express listen on PORT 3000");
+});
