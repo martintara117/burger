@@ -13,11 +13,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/getburgers", (req, res) => {
-  res.json({});
+  res.json({ burgers: [] });
 });
 
 app.post("/api/addburger", (req, res) => {
-  res.json({});
+  res.json({ burger: req.body.name });
 });
 
 app.listen(3000, () => {
