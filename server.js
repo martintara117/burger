@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const handlebars = require("express-handlebars");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded());
+app.use(express.json());
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 
