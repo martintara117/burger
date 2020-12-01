@@ -10,6 +10,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/api/getburgers", (req, res) => {
+  res.json({});
+});
+
+app.post("/api/addburger", (req, res) => {
+  res.json({});
+});
+
 app.listen(3000, () => {
   console.log("express listen on PORT 3000");
 });
