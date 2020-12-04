@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const handlebars = require("express-handlebars");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
@@ -17,7 +17,7 @@ app.get("/api/getburgers", (req, res) => {
 });
 
 app.post("/api/addburger", (req, res) => {
-  res.json({ burger: req.body.name });
+  res.json({ name: req.body.name });
 });
 
 app.listen(3000, () => {
