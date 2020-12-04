@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const controller = require("./controllers/burgers_controller.js");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -14,12 +15,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/getburgers", (req, res) => {
-  res.json({ burgers: [] });
+  res.json(controller.getBurgers());
 });
 
-app.post("/api/addburger", (req, res) => {
+app.post("/api/addburger", async (req, res) => {
   console.log(req.body);
-  res.json(req.body);
+  const newBurgerName = req.body.name;
+  await controller.addBurger(newBurgerName);
+  res.json(controller.getBurgers());
 });
 
 app.listen(3000, () => {
