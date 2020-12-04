@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const handlebars = require("express-handlebars");
+const bodyParser = require("body-parser");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 
@@ -17,7 +18,8 @@ app.get("/api/getburgers", (req, res) => {
 });
 
 app.post("/api/addburger", (req, res) => {
-  res.json({ name: req.body.name });
+  console.log(req.body);
+  res.json(req.body);
 });
 
 app.listen(3000, () => {
