@@ -1,8 +1,13 @@
 const Burger = require("../models/burger.js");
-const ORM = require("../config/orm.js");
+const orm = require("../config/orm.js");
 module.exports = {
   addBurger(name) {
-    const burger = new Burger(name);
+    return orm.addBurger(name);
   },
-  getBurgers() {},
+  getBurgers() {
+    return orm.getBurgers();
+  },
+  consumeBurger(id) {
+    return orm.consumeBurger(id);
+  },
 };
