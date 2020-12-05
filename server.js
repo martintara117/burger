@@ -18,8 +18,13 @@ app.get("/api/getburgers", (req, res) => {
   res.json(controller.getBurgers());
 });
 
+app.get("/api/consumeburger/:id", async (req, res) => {
+  let id = req.params.id;
+  await controller.consumeBurger(id);
+  res.json(controller.getBurgers());
+});
+
 app.post("/api/addburger", async (req, res) => {
-  console.log(req.body);
   const newBurgerName = req.body.name;
   await controller.addBurger(newBurgerName);
   res.json(controller.getBurgers());
