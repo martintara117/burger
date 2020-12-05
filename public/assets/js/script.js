@@ -61,3 +61,7 @@ function showBurgers(data) {
     }
   }
 }
+
+fetch("/api/getburgers")
+  .then((res) => res.json())
+  .then(showBurgers);
