@@ -1,4 +1,4 @@
-const Burger = require("../models/burger.js");
+
 const orm = require("../config/orm.js");
 module.exports = {
   addBurger(name) {
