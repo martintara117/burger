@@ -1,10 +1,3 @@
-console.log("script.js loaded");
-console.log("script.js loaded");
-//in index.handlebars, we have two types of user submission
-//1. user adds new burger
-//2. user consumes an existing burger
-//for each of these, we need a click listener and handler function
-
 //#1 (add new burger)
 console.log("script.js loaded");
 //in index.handlebars, we have two types of user submission

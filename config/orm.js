@@ -1,13 +1,20 @@
 const Burger = require("../models/burger.js");
-const mysql = require("mysql");
+var connection = require("./connection.js");
 
 module.exports = {
   addBurger(name) {
-    const burger = new Burger(name);
-    console.log("orm new burger:", burger.getName());
+    var queryString = "INSERT INTO burgers (name, isConsumed) VALUES ?";
+    connection.query(queryString, [name, false], function (err, result) {
+      if (err) throw err;
+      return true;
+    });
   },
   getBurgers() {
-    return [new Burger("cheese"), new Burger("turkey"), new Burger("veggie")];
+    var queryString = "SELECT * FROM burgers";
+    connection.query(queryString, function (err, result) {
+      if (err) throw err;
+      return result;
+    });
   },
   consumeBurger(id) {
     const burger = new Burger("Eat Me!");
