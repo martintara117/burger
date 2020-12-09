@@ -1,14 +1,16 @@
 body {
   margin: 0;
-  background-color: rgb(252, 203, 129);
+  background-color: rgb(176, 129, 252);
   text-align: center;
 }
 
 header {
+  color: rgb(254, 255, 169);
   padding: 25px;
+  background-image: url("https://wallpapercave.com/wp/wp2742875.jpg");
   border-bottom: 2px solid black;
-  background-color: rgba(0, 0, 0, 0.25);
   margin-bottom: 50px;
+  font-family: "Russo One", sans-serif;
 }
 
 img {

@@ -1,4 +1,3 @@
-//#1 (add new burger)
 console.log("script.js loaded");
 //in index.handlebars, we have two types of user submission
 //1. user adds new burger
@@ -29,7 +28,9 @@ function addBurger() {
 //#2 (consume burger)
 function consumeBurger(e) {
   let id = e.currentTarget.getAttribute("data-id");
-  fetch(`/api/consumeburger/${id}`)
+  fetch(`/api/consumeburger/${id}`, {
+    method: "PUT",
+  })
     .then((res) => res.json())
     .then(showBurgers);
 }
@@ -54,7 +55,3 @@ function showBurgers(data) {
     }
   }
 }
-
-fetch("/api/getburgers")
-  .then((res) => res.json())
-  .then(showBurgers);

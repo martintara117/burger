@@ -10,25 +10,8 @@ app.use(bodyParser.json());
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.get("/api/getburgers", (req, res) => {
-  res.json(controller.getBurgers());
-});
-
-app.get("/api/consumeburger/:id", async (req, res) => {
-  let id = req.params.id;
-  await controller.consumeBurger(id);
-  res.json(controller.getBurgers());
-});
-
-app.post("/api/addburger", async (req, res) => {
-  const newBurgerName = req.body.name;
-  await controller.addBurger(newBurgerName);
-  res.json(controller.getBurgers());
-});
+const routes = require("./controllers/burgers_controller.js");
+app.use(routes);
 
 app.listen(3000, () => {
   console.log("express listen on PORT 3000");
