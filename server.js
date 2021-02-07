@@ -13,6 +13,6 @@ app.set("view engine", "handlebars");
 const routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
-app.listen(3000, () => {
-  console.log("express listen on PORT 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`express listen on PORT ${process.env.PORT || 3000}`);
 });
